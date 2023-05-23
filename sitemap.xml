@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://www.hujixiang.eu.org/posts/e9cea2db.html</loc>
+    
+    <lastmod>2023-05-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.hujixiang.eu.org/box/nav/index.html</loc>
     
     <lastmod>2023-05-23</lastmod>
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://www.hujixiang.eu.org/personal/love/index.html</loc>
+    <loc>https://www.hujixiang.eu.org/personal/bb/index.html</loc>
     
     <lastmod>2023-05-18</lastmod>
     
@@ -146,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://www.hujixiang.eu.org/personal/bb/index.html</loc>
+    <loc>https://www.hujixiang.eu.org/personal/love/index.html</loc>
     
     <lastmod>2023-05-18</lastmod>
     
@@ -189,6 +198,13 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://www.hujixiang.eu.org/tags/Hexo/</loc>
+    <lastmod>2023-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://www.hujixiang.eu.org/tags/Markdown/</loc>
