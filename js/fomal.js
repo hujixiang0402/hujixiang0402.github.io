@@ -3844,7 +3844,7 @@ function createWinbox() {
         
         <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
               <div class='content'>
-              <pre><code>    &lt;div class=&quot;bgbox&quot;&gt;    &lt;a href=&quot;javascript:;&quot; rel=&quot;noopener external nofollow&quot; style=&quot;background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)&quot; class=&quot;imgbox&quot; onclick=&quot;changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')&quot;&gt;&lt;/a&gt;</code></pre></div>
+              <pre><code>    &lt;div class=&quot;bgbox&quot;&gt;    &lt;a href=&quot;javascript:;&quot; rel=&quot;noopener external nofollow&quot; style=&quot;background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)&quot; class=&quot;imgbox&quot; onclick=&quot;changeBg(&#39;url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)&#39;)&quot;&gt;&lt;/a&gt;</code></pre><p>&lt;/div&gt;</p>
               </div>
             </details>
 
