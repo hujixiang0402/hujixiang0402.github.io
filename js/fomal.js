@@ -3935,73 +3935,14 @@ function createWinbox() {
 
 // 恢复默认背景
 function resetBg() {
-  localStorage.setItem("blogbg", "deafult"),
-    resetBg_(),
-    new Vue({
-        data: function() {
-            this.$notify({
-                title: "提示🌰",
-                message: "当前已经恢复为默认背景！",
-                position: "top-left",
-                offset: 50,
-                showClose: !0,
-                type: "success",
-                duration: 5000
-            })
-        }
-    })
+  localStorage.removeItem('blogbg');
+  reload();
 }
 
 // 恢复默认设置并刷新页面
 function reset() {
-  initItem(),
-    setFont("LXGW"),
-    setColor("green"),
-    document.getElementById("universe").style.display = "block",
-    document.getElementById("snow").style.display = "none",
-    document.getElementById("aside-show").innerText = ":root{--layout-justify-content: unset; --aside-content-display: block;}",
-    document.getElementById("aside-pos").innerText = ":root{--first-child-order: 0; --recent-post-item-margin: 0px 1% 20px 0px;}",
-    document.getElementById("nav").classList.add("nav_fixed"),
-    document.getElementById("nav").classList.remove("nav_visible"),
-    document.getElementById("nav-display").innerText = ":root{--nav-visible-display:none;--nav-fixed-display:inline-flex;}",
-    document.getElementById("rightSide").innerText = ":root{--rightside-display: block}",
-    document.getElementById("fps").style.display = "block",
-    curTransMini = .95 * (curTransNum = 98),
-    document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(250, 250, 250, ${curTransNum}%) !important; --trans-dark: rgba(28, 28, 28, ${curTransNum}%) !important} `,
-    resetBg_(),
-    changeLight(!0),
-    document.getElementById("green").checked = !0,
-    document.getElementById("universeSet").checked = !0,
-    document.getElementById("fpson").checked = !0,
-    document.getElementById("rightSideSet").checked = !0,
-    document.getElementById("lightSet").checked = !0,
-    document.getElementById("snowSet").checked = !1,
-    document.getElementById("navSet").checked = !0,
-    document.getElementById("asideSet").checked = !0,
-    document.getElementById("asidePosSet").checked = !0,
-    document.getElementById("bgFilterSet").checked = !0,
-    document.getElementById("blurRad").value = 0,
-    document.getElementById("saturation").value = 115,
-    document.getElementById("contrast").value = 105,
-    document.getElementById("bgFilterShow").innerHTML = '模糊半径: <span style="color:#eb5353">0px</span> | 饱和度: <span style="color:#eb5353">115%</span> | 对比度: <span style="color:#eb5353">105%</span>',
-    document.getElementById("bgFilterParam").innerText = ":root{--bg-filter:" + localStorage.getItem("bgFilterVal") + ";}",
-    document.getElementById("transVal").innerHTML = '卡片透明度 (0%-100%): <span style="color:#eb5353">' + curTransNum + "%</span>",
-    document.getElementById("transSet").value = `${curTransNum}`,
-    document.getElementById("rang_trans").style = `width:${curTransMini}%`,
-    new Vue({
-        data: function() {
-            this.$notify({
-                title: "提示🍅",
-                message: "当前已经恢复为默认设置！",
-                position: "top-left",
-                offset: 50,
-                showClose: !0,
-                type: "success",
-                duration: 5000
-            })
-        }
-    })
-}
+  clearItem();
+  reload();
 }
 
 // 适应窗口大小
