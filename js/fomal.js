@@ -1348,7 +1348,7 @@ document.addEventListener('visibilitychange', function () {
     clearTimeout(titleTime);
   } else {
     //返回当前页面时标签显示内容
-    document.title = '😂你回来啦～';
+    document.title = '😂https://github.com/hujixiang0402你啦～';
     //两秒后变回正常标题
     titleTime = setTimeout(function () {
       document.title = OriginTitile;
@@ -2544,13 +2544,13 @@ if (m == 12 && dd == 25) {//圣诞节
 }
 if (m == 8 && dd == 11) {//站长生日
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("祝站长" + (y - 2000).toString() + "岁生日快乐！🥝");
+    Swal.fire("祝站长" + (y - 0402).toString() + "岁生日快乐！🥝");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 6 && dd == 30) {//大宝贝生日
+if (m == 6 && dd == 30) {//小猫咪生日
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("祝大宝贝" + (y - 1998).toString() + "岁生日快乐！🐱");
+    Swal.fire("祝小猫咪" + (y - 1999).toString() + "岁生日快乐！🐱");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
@@ -2873,7 +2873,7 @@ if (window.localStorage.getItem("fpson") == undefined || window.localStorage.get
       } else if (fps <= 25) {
         var kd = `<span style="color:orange">有点难受😨</span>`
       } else if (fps < 35) {
-        var kd = `<span style="color:#9338e6">不太流畅🙄</span>`
+        var kd = `<span style="color:#9338e6">不太2流畅🙄</span>`
       } else if (fps <= 45) {
         var kd = `<span style="color:#08b7e4">还不错哦😁</span>`
       } else {
@@ -2940,37 +2940,43 @@ function clearItem() {
 
 
 // 设置字体
-if (localStorage.getItem("font") == undefined) {
-  localStorage.setItem("font", "LXGW");
-}
-setFont(localStorage.getItem("font"));
-function setFont(n) {
-  localStorage.setItem("font", n)
-  if (n == "default") {
-    document.documentElement.style.setProperty('--global-font', '-apple-system');
-    document.body.style.fontFamily = "-apple-system, Consolas_1, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
+function setFont(e) {
+  localStorage.setItem("font", e);
+
+  if ("default" == e) {
+    document.documentElement.style.setProperty("--global-font", "-apple-system");
+    document.body.style.fontFamily = "-apple-system, Consolas_1, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif";
+  } else {
+    document.documentElement.style.setProperty("--global-font", e);
+    document.body.style.fontFamily = "var(--global-font), -apple-system, IBM Plex Mono, monospace, '微软雅黑', sans-serif";
   }
-  else {
-    document.documentElement.style.setProperty('--global-font', n);
-    document.body.style.fontFamily = "var(--global-font),-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
-  }
-  try { setFontBorder(); } catch (err) { };
+
+  try {
+    setFontBorder();
+  } catch (e) {}
 }
+
 
 // 设置字体选择框边界
 function setFontBorder() {
-  var curFont = localStorage.getItem("font");
-  var swfId = "swf_" + curFont;
-  document.getElementById(swfId).style.border = "2px solid var(--theme-color)";
-  Array.prototype.forEach.call(document.getElementsByClassName("swf"), function (ee) {
-    if (ee.id != swfId) ee.style.border = "2px solid var(--border-color)";
-  });
+  var e = "swf_" + localStorage.getItem("font");
+  document.getElementById(e).style.border = "2px solid var(--theme-color)";
+  
+  Array.prototype.forEach.call(
+    document.getElementsByClassName("swf"),
+    function (t) {
+      if (t.id != e) {
+        t.style.border = "2px solid var(--border-color)";
+      }
+    }
+  );
 }
+
 
 
 // 设置主题色
 if (localStorage.getItem("themeColor") == undefined) {
-  localStorage.setItem("themeColor", "green");
+  localStorage.setItem("themeColor", "blue");
 }
 setColor(localStorage.getItem("themeColor"));
 function setColor(c) {
@@ -2988,21 +2994,16 @@ function setColor(c) {
 
 
 // 星空背景开关
-if (localStorage.getItem("universe") == undefined) {
-  localStorage.setItem("universe", "block");
-}
-setUniverse2(localStorage.getItem("universe"));
-function setUniverse2(c) {
-  document.getElementById("universe").style.display = c;
-  localStorage.setItem("universe", c);
-}
 function setUniverse() {
   if (document.getElementById("universeSet").checked) {
-    setUniverse2("block");
+    document.getElementById("universe").style.display = "block";
+    localStorage.setItem("universe", "block");
   } else {
-    setUniverse2("none");
+    document.getElementById("universe").style.display = "none";
+    localStorage.setItem("universe", "none");
   }
 }
+
 
 // 雪花开关
 if (localStorage.getItem("snow") == undefined) {
@@ -3058,401 +3059,6 @@ function toggleRightside() {
   }
 }
 
-// function setAside() {
-//   if (document.getElementById("asideSet").checked) {
-//     localStorage.setItem("aside", "1");
-//     document.getElementById("aside-show").innerText = `:root{--layout-justify-content: unset; --aside-content-display: block;}`;
-//   } else {
-//     localStorage.setItem("aside", "0");
-//     document.getElementById("aside-show").innerText = `:root{--layout-justify-content: center; --aside-content-display: none;}`;
-//   }
-// }
-// function setAsidePos() {
-//   if (document.getElementById("asidePosSet").checked) {
-//     localStorage.setItem("asidePos", "1");
-//     document.getElementById("aside-pos").innerText = `:root{--first-child-order: 0; --recent-post-item-margin: 0px 1% 20px 0px;}`;
-//   } else {
-//     localStorage.setItem("asidePos", "0");
-//     document.getElementById("aside-pos").innerText = `:root{--first-child-order: 2; --recent-post-item-margin: 0px 0px 20px 1%;}`;
-//   }
-// }
-// // 设置字体
-// if (localStorage.getItem("font") == null) {
-//   localStorage.setItem("font", "LXGW");
-// }
-// setFont(localStorage.getItem("font"));
-
-// // 设置主题颜色
-// if (localStorage.getItem("themeColor") == null) {
-//   localStorage.setItem("themeColor", "green");
-// }
-// setColor(localStorage.getItem("themeColor"));
-
-// // 设置宇宙显示
-// if (localStorage.getItem("universe") == null) {
-//   localStorage.setItem("universe", "block");
-// }
-// document.getElementById("universe").style.display = localStorage.getItem("universe");
-
-// // 设置雪花显示
-// if (localStorage.getItem("snow") == null) {
-//   localStorage.setItem("snow", "none");
-// }
-// document.getElementById("snow").style.display = localStorage.getItem("snow");
-
-// // 设置导航
-// if (localStorage.getItem("nav") == null) {
-//   localStorage.setItem("nav", "1");
-// }
-// document.addEventListener("pjaxelsecomplete", addNavClass);
-// document.addEventListener("DOMContentLoaded", addNavClass);
-
-// // 设置 FPS 显示
-// if (localStorage.getItem("fpson") == null) {
-//   localStorage.setItem("fpson", "1");
-// }
-// startFps();
-// if (localStorage.getItem("fpson") == "1") {
-//   document.getElementById("fps").style.display = "block";
-// } else {
-//   document.getElementById("fps").style.display = "none";
-// }
-
-// // 设置右侧显示
-// if (localStorage.getItem("rs") == null) {
-//   localStorage.setItem("rs", "block");
-// }
-// if (localStorage.getItem("rs") == "block") {
-//   document.getElementById("rightSide").innerText = `:root{--rightside-display: block}`;
-// } else {
-//   document.getElementById("rightSide").innerText = `:root{--rightside-display: none}`;
-// }
-
-// // 设置侧边栏显示
-// if (localStorage.getItem("aside") == null) {
-//   localStorage.setItem("aside", "1");
-// }
-// if (localStorage.getItem("aside") == "1") {
-//   document.getElementById("aside-show").innerText = `:root{--layout-justify-content: unset; --aside-content-display: block;}`;
-// } else {
-//   document.getElementById("aside-show").innerText = `:root{--layout-justify-content: center; --aside-content-display: none;}`;
-// }
-
-// // 设置侧边栏位置
-// if (localStorage.getItem("asidePos") == null) {
-//   localStorage.setItem("asidePos", "1");
-// }
-// if (localStorage.getItem("asidePos") == "1") {
-//   document.getElementById("aside-pos").innerText = `:root{--first-child-order: 0; --recent-post-item-margin: 0px 1% 20px 0px;}`;
-// } else {
-//   document.getElementById("aside-pos").innerText = `:root{--first-child-order: 2; --recent-post-item-margin: 0px 0px 20px 1%;}`;
-// }
-
-// // 设置透明度值
-// if (localStorage.getItem("transNum") == null) {
-//   localStorage.setItem("transNum", "98");
-// }
-
-// var curTransNum = localStorage.getItem("transNum");
-// var curTransMini = 0.95 * curTransNum;
-
-// function setTrans() {
-//   var e = document.getElementById("transSet").value;
-//   document.querySelector(".transValue").innerHTML =
-//     '卡片透明度 (0%-100%)<span style="color:#eb5353">' + e + "%</span>";
-//   localStorage.setItem("transNum", e);
-//   curTransMini = 0.95 * e;
-//   curTransNum = e;
-//   document.querySelector("#rang_trans").style.width = curTransMini + "%";
-//   document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(250, 250, 250, ${e}%); --trans-dark: rgba(28, 28, 28, ${e}%);}`;
-// }
-
-// document.getElementById("transPercent").innerText = `:root{--trans-light: rgba(250, 250, 250, ${curTransNum}%); --trans-dark: rgba(28, 28, 28, ${curTransNum}%);}`;
-
-// if (localStorage.getItem("lastTime") == null) {
-//   localStorage.setItem("lastTime", Date.now() - 2916e4);
-// }
-
-// let deltaSeconds = (Date.now() - localStorage.getItem("lastTime")) / 1e3;
-
-// if (deltaSeconds > 28800) {
-//   localStorage.setItem("lastTime", Date.now());
-//   var curHour = new Date().getHours();
-//   var curMode = document.getElementsByTagName("html")[0].getAttribute("data-theme");
-
-//   if (curHour >= 19 || curHour < 7) {
-//     activateDarkMode();
-//     saveToLocal.set("theme", "dark", 2);
-//     document.getElementById("modeicon").setAttribute("xlink:href", "#icon-sun");
-//   } else if (curHour >= 7 && curHour < 19 && curMode !== "light") {
-//     activateLightMode();
-//     saveToLocal.set("theme", "light", 2);
-//     document.querySelector("body").classList.add("DarkMode");
-//     document.getElementById("modeicon").setAttribute("xlink:href", "#icon-moon");
-//   }
-// }
-// var defineColor = localStorage.getItem("blogbg") && "#" == localStorage.getItem("blogbg").charAt(0) ? localStorage.getItem("blogbg") : "#F4D88A";
-
-// function changeBgColor() {
-//   changeBg(document.querySelector("#define_colors").value);
-// }
-
-// let bingDayBg = screen.width <= 768 ? "url(https://bing.img.run/m.php)" : "url(https://bing.img.run/1920x1080.php)";
-// let bingHistoryBg = screen.width <= 768 ? "url(https://bing.img.run/rand_m.php)" : "url(https://bing.img.run/rand.php)";
-// let EEEDog = "url(https://api.yimian.xyz/img?iftype=moe&size=1920x1080)";
-// let seovx = "url(https://cdn.seovx.com/img?mom=302)";
-// let picsum = "url(https://picsum.photos/1920/1080.webp)";
-// let waiBizhi = "url(https://api.ixiaowai.cn/gqapi/gqapi.php)";
-// let btstu = "url(http://api.btstu.cn/sjbz?iflx=suiji)";
-// let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
-
-// function resetBg_() {
-//   document.getElementById("defineBg").innerText = `:root {
-//     --default-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/home_bg.webp);
-//     --darkmode-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/dark_mode.webp);
-//     --mobileday-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/snow.webp);
-//     --mobilenight-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/mb8.webp);
-//   }`;
-// }
-
-// function changeBg(e) {
-//   defineColor = e.charAt(0) === "#" ? e : "#F4D88A";
-//   setBg(e);
-//   localStorage.setItem("blogbg", e);
-// }
-
-// function setBg(e) {
-//   document.getElementById("defineBg").innerText = `:root {
-//     --default-bg: ${e};
-//     --darkmode-bg: ${e};
-//     --mobileday-bg: ${e};
-//     --mobilenight-bg: ${e};
-//   }`;
-// }
-
-// function getPicture() {
-//   debounce(getPicture_, 300);
-// }
-
-// function getPicture_() {
-//   checkImgExists(document.getElementById("pic-link").value)
-//     .then(() => {
-//       changeBg("url(" + document.getElementById("pic-link").value + ")");
-//       new Vue({
-//         data() {
-//           return {
-//             notifyOptions: {
-//               title: "可以啦🍨",
-//               message: "切换自定义背景成功！",
-//               position: "top-left",
-//               offset: 50,
-//               showClose: true,
-//               type: "success",
-//               duration: 5000,
-//             },
-//           };
-//         },
-//         mounted() {
-//           this.$notify(this.notifyOptions);
-//         },
-//       });
-//     })
-//     .catch(() => {
-//       new Vue({
-//         data() {
-//           return {
-//             notifyOptions: {
-//               title: "链接不对🤣",
-//               message: "请输入有效的图片链接！",
-//               position: "top-left",
-//               offset: 50,
-//               showClose: true,
-//               type: "warning",
-//               duration: 5000,
-//             },
-//           };
-//         },
-//         mounted() {
-//           this.$notify(this.notifyOptions);
-//         },
-//       });
-//     });
-// }
-
-// function checkImgExists(e) {
-//   return new Promise(function (resolve, reject) {
-//     var img = new Image();
-//     img.src = e;
-//     img.onload = function () {
-//       resolve();
-//     };
-//     img.onerror = function () {
-//       reject();
-//     };
-//   });
-// }
-
-// function setLight() {
-//   if (document.getElementById("lightSet").checked) {
-//     changeLight(true);
-//     localStorage.setItem("light", "true");
-//   } else {
-//     changeLight(false);
-//     localStorage.setItem("light", "false");
-//   }
-// }
-
-// function changeLight(e) {
-//   if (document.getElementById("site-name")) {
-//     document.getElementById("site-name").style.animation = e
-//       ? "light_15px 10s linear infinite"
-//       : "none";
-//   }
-//   if (document.getElementById("site-title")) {
-//     document.getElementById("site-title").style.animation = e
-//       ? "light_15px 10s linear infinite"
-//       : "none";
-//   }
-//   if (document.getElementById("site-subtitle")) {
-//     document.getElementById("site-subtitle").style.animation = e
-//       ? "light_10px 10s linear infinite"
-//       : "none";
-//   }
-//   if (document.getElementById("post-info")) {
-//     document.getElementById("post-info").style.animation = e
-//       ? "light_5px 10s linear infinite"
-//       : "none";
-//   }
-//   document.getElementById("menu_shadow").innerText = e
-//     ? "elseroot{--menu-shadowelse 0 0 1px var(--theme-color);}"
-//     : "elseroot{--menu-shadowelse none;}";
-// }
-
-// var blurRadius, saturate, contrast;
-
-// if (null == localStorage.getItem("blogbg") || "default" == localStorage.getItem("blogbg")) {
-//   resetBg_();
-//   if (null == localStorage.getItem("blogbg")) {
-//     localStorage.setItem("blogbg", "default");
-//   }
-// } else {
-//   setBg(localStorage.getItem("blogbg"));
-// }
-
-// if (null == localStorage.getItem("light")) {
-//   localStorage.setItem("light", "true");
-// }
-
-// document.addEventListener("pjaxelsecomplete", function () {
-//   changeLight("true" == localStorage.getItem("light"));
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   changeLight("true" == localStorage.getItem("light"));
-// });
-
-// if (null == localStorage.getItem("bgFilterVal")) {
-//   localStorage.setItem("bgFilterVal", "blur(0px) saturate(115%) contrast(105%)");
-// }
-
-// var strs = localStorage.getItem("bgFilterVal").split(" ");
-
-// function saveBgFilter() {
-//   if (
-//     document.getElementById("blurRad").value < 0 ||
-//     document.getElementById("blurRad").value > 300 ||
-//     document.getElementById("saturation").value < 0 ||
-//     document.getElementById("saturation").value > 200 ||
-//     document.getElementById("contrast").value < 0 ||
-//     document.getElementById("contrast").value > 200
-//   ) {
-//     new Vue({
-//       data: function () {
-//         this.$notify({
-//           title: "警告💊",
-//           message: "背景滤镜参数不在合理范围内！",
-//           position: "top-left",
-//           offset: 50,
-//           showClose: true,
-//           type: "warning",
-//           duration: 5e3,
-//         });
-//       },
-//     });
-//   } else {
-//     var e =
-//       "blur(" +
-//       document.getElementById("blurRad").value +
-//       "px) saturate(" +
-//       document.getElementById("saturation").value +
-//       "%) contrast(" +
-//       document.getElementById("contrast").value +
-//       "%)";
-//     localStorage.setItem("bgFilterVal", e);
-
-//     if ("1" == localStorage.getItem("bgFilterOn")) {
-//       document.getElementById("bgFilterParam").innerText =
-//         "elseroot{--bg-filterelse" + localStorage.getItem("bgFilterVal") + ";}";
-//     }
-
-//     blurRadius = document.getElementById("blurRad").value;
-//     saturate = document.getElementById("saturation").value;
-//     contrast = document.getElementById("contrast").value;
-
-//     document.getElementById("bgFilterShow").innerHTML =
-//       '模糊半径else <span style="colorelse#eb5353">' +
-//       blurRadius +
-//       'px</span> | 饱和度else <span style="colorelse#eb5353">' +
-//       saturate +
-//       '%</span> | 对比度else <span style="colorelse#eb5353">' +
-//       contrast +
-//       "%</span>";
-
-//     new Vue({
-//       data: function () {
-//         this.$notify({
-//           title: "提示🍄",
-//           message: "设置背景滤镜参数成功！",
-//           position: "top-left",
-//           offset: 50,
-//           showClose: true,
-//           type: "success",
-//           duration: 5e3,
-//         });
-//       },
-//     });
-//   }
-// }
-
-// function setBgFilter() {
-//   if (document.getElementById("bgFilterSet").checked) {
-//     document.getElementById("bgFilterParam").innerText =
-//       "elseroot{--bg-filterelse" + localStorage.getItem("bgFilterVal") + ";}";
-//     localStorage.setItem("bgFilterOn", "1");
-//   } else {
-//     document.getElementById("bgFilterParam").innerText =
-//       "elseroot{--bg-filterelsenone;}";
-//     localStorage.setItem("bgFilterOn", "0");
-//   }
-// }
-
-// blurRadius = strs[0].substring(5, strs[0].length - 3);
-// saturate = strs[1].substring(9, strs[1].length - 2);
-// contrast = strs[2].substring(9, strs[2].length - 2);
-
-// if (null == localStorage.getItem("bgFilterOn")) {
-//   localStorage.setItem("bgFilterOn", "1");
-// }
-
-// if ("0" == localStorage.getItem("bgFilterOn")) {
-//   document.getElementById("bgFilterParam").innerText =
-//     "elseroot{--bg-filterelsenone;}";
-// } else {
-//   document.getElementById("bgFilterParam").innerText =
-//     "elseroot{--bg-filterelse" + localStorage.getItem("bgFilterVal") + ";}";
-// }
-
-// var winbox = "";
 
 // 透明度调节滑块
 if (localStorage.getItem("transNum") == undefined) {
@@ -3590,10 +3196,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
-    --darkmode-bg:url(https://lskypro.acozycotage.net/Fomalhaut/img/yuanshen1.webp);
-    --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
-    --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
+    --default-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/yuanshen1.webp);
+    --darkmode-bg:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj1.webp);
+    --mobileday-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/mc1.webp);
+    --mobilenight-bg: url(https://cdn.skypro.cartafi.cn/2023/04/20/mc2.webp);
   }`;
 }
 // 切换背景主函数
@@ -3726,6 +3332,88 @@ function changeLight(flag) {
 //   }
 // }
 
+// var blurRadius, saturate, contrast;
+//   null == localStorage.getItem("blogbg") ||
+//   "default" == localStorage.getItem("blogbg")
+//     ? (resetBg_(),
+//       null == localStorage.getItem("blogbg") &&
+//         localStorage.setItem("blogbg", "default"))
+//     : setBg(localStorage.getItem("blogbg")),
+//     null == localStorage.getItem("light") &&
+//       localStorage.setItem("light", "true"),
+//     document.addEventListener("pjax:complete", function () {
+//       changeLight("true" == localStorage.getItem("light"));
+//     }),
+//     document.addEventListener("DOMContentLoaded", function () {
+//       changeLight("true" == localStorage.getItem("light"));
+//     }),
+//     null == localStorage.getItem("bgFilterVal") &&
+//       localStorage.setItem(
+//         "bgFilterVal",
+//         "blur(0px) saturate(115%) contrast(105%)"
+//       );
+//   var strs = localStorage.getItem("bgFilterVal").split(" ");
+//   function saveBgFilter() {
+//     if (
+//       document.getElementById("blurRad").value < 0 ||
+//       document.getElementById("blurRad").value > 300 ||
+//       document.getElementById("saturation").value < 0 ||
+//       document.getElementById("saturation").value > 200 ||
+//       document.getElementById("contrast").value < 0 ||
+//       document.getElementById("contrast").value > 200
+//     )
+//       new Vue({
+//         data: function () {
+//           this.$notify({
+//             title: "警告💊",
+//             message: "背景滤镜参数不在合理范围内！",
+//             position: "top-left",
+//             offset: 50,
+//             showClose: !0,
+//             type: "warning",
+//             duration: 5e3,
+//           });
+//         },
+//       });
+//     else {
+//       var e =
+//         "blur(" +
+//         document.getElementById("blurRad").value +
+//         "px) saturate(" +
+//         document.getElementById("saturation").value +
+//         "%) contrast(" +
+//         document.getElementById("contrast").value +
+//         "%)";
+//       localStorage.setItem("bgFilterVal", e),
+//         "1" == localStorage.getItem("bgFilterOn") &&
+//           (document.getElementById("bgFilterParam").innerText =
+//             ":root{--bg-filter:" + localStorage.getItem("bgFilterVal") + ";}"),
+//         (blurRadius = document.getElementById("blurRad").value),
+//         (saturate = document.getElementById("saturation").value),
+//         (contrast = document.getElementById("contrast").value),
+//         (document.getElementById("bgFilterShow").innerHTML =
+//           '模糊半径: <span style="color:#eb5353">' +
+//           blurRadius +
+//           'px</span> | 饱和度: <span style="color:#eb5353">' +
+//           saturate +
+//           '%</span> | 对比度: <span style="color:#eb5353">' +
+//           contrast +
+//           "%</span>"),
+//         new Vue({
+//           data: function () {
+//             this.$notify({
+//               title: "提示🍄",
+//               message: "设置背景滤镜参数成功！",
+//               position: "top-left",
+//               offset: 50,
+//               showClose: !0,
+//               type: "success",
+//               duration: 5e3,
+//             });
+//           },
+//         });
+//     }
+//   }
 // 创建窗口
 var winbox = "";
 
@@ -3757,7 +3445,7 @@ function createWinbox() {
 <div class="settings" style="display: block;">
 <div id="article-container" style="padding:12px;">
 <br>
-<center><p><button onclick="reset()" style="background:linear-gradient(to right, #fc354c, #0abfbc);display:block;width:40%;padding:15px 0;border-radius:30px;color:white;font-size:1.1em;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认设置</button></p></center>
+<center><p><button id="reset_btn" onclick="debounce(reset, 300)" style="background:linear-gradient(to right, #fc354c, #0abfbc);display:block;width:40%;padding:15px 0;border-radius:30px;color:white;font-size:1.1em;" title="点击此按钮恢复美化模块默认设置"><i class="fa-solid fa-arrows-rotate" style="animation: fa-spin 8s linear infinite;"></i>&nbsp;恢复默认设置</button></p></center>
 
 <h2>一、显示偏好</h2>
 
@@ -3775,17 +3463,17 @@ function createWinbox() {
 
 <div class="content" style="display:flex">
   <div class="content-text" style="font-weight:bold; padding-left:10px"> 星空特效 (夜间模式) </div><input type="checkbox" id="universeSet" onclick="setUniverse()">
-  <div class="content-text" style="font-weight:bold; padding-left:20px"> 霓虹灯 (夜间模式) </div><input type="checkbox" id="lightSet" onclick="setLight()">
+  <div class="content-text" style="font-weight:bold; padding-left:20px"> 霓虹彩灯 (夜间模式) </div><input type="checkbox" id="lightSet" onclick="setLight()">
 </div>
 
 <div class="content" style="display:flex">
   <div class="content-text" style="font-weight:bold; padding-left:10px"> 模糊效果 (消耗性能) </div><input type="checkbox" id="blur" onclick="setBlur()">
-  <div class="content-text" style="font-weight:bold; padding-left:20px"> 侧边栏 (默认开) </div><input type="checkbox" id="rightSideSet" onclick="toggleRightside()">
+  <div class="content-text" style="font-weight:bold; padding-left:20px"> 右侧边栏 (默认开启) </div><input type="checkbox" id="rightSideSet" onclick="toggleRightside()">
 </div>
 
 <div class="content" style="display:flex">
   <div class="content-text" style="font-weight:bold; padding-left:10px"> 帧率监测 (刷新生效) </div><input type="checkbox" id="fpson" onclick="fpssw()">
-  <div class="content-text" style="font-weight:bold; padding-left:10px"> 雪花特效 (白天模式) </div><input type="checkbox" id="snowSet" onclick="setSnow()">
+  <div class="content-text" style="font-weight:bold; padding-left:20px"> 雪花特效 (白天模式) </div><input type="checkbox" id="snowSet" onclick="setSnow()">
 </div>
 
 <div class="content" style="display:flex">
@@ -3798,6 +3486,7 @@ function createWinbox() {
 <div class="note warning modern"><p>非商免字体未经授权只能个人使用。本站为完全非商业、非盈利性质的网站，平时用于个人学习交流，如有侵权请联系站长删除，谢谢！ —— 致版权方</p>
 </div>
 <p id="swfs">
+
 <a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan'!important;color:black" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
 <a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR'!important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
 <a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW'!important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
@@ -3808,69 +3497,69 @@ function createWinbox() {
 </p>
 
 <h2>三、主题色设置</h2>
-<div class="content" style="display:flex"><input type="radio" id="red" name="colors" value=" "
-        onclick="setColor('red')"><input type="radio" id="orange" name="colors" value=" "
-        onclick="setColor('orange')"><input type="radio" id="yellow" name="colors" value=" "
-        onclick="setColor('yellow')"><input type="radio" id="green" name="colors" value=" "
-        onclick="setColor('green')"><input type="radio" id="blue" name="colors" value=" "
-        onclick="setColor('blue')"><input type="radio" id="heoblue" name="colors" value=" "
-        onclick="setColor('heoblue')"><input type="radio" id="darkblue" name="colors" value=" "
-        onclick="setColor('darkblue')"><input type="radio" id="purple" name="colors" value=" "
-        onclick="setColor('purple')"><input type="radio" id="pink" name="colors" value=" "
-        onclick="setColor('pink')" checked="checked"><input type="radio" id="black" name="colors" value=" "
-        onclick="setColor('black')"><input type="radio" id="blackgray" name="colors" value=" "
-        onclick="setColor('blackgray')"></div>
+      <div class="content" style="display:flex;padding-left:12px;">
+      <input type="radio" id="red" name="colors" value=" " onclick="setColor('red')">
+      <input type="radio" id="orange" name="colors" value=" " onclick="setColor('orange')">
+      <input type="radio" id="yellow" name="colors" value=" " onclick="setColor('yellow')">
+      <input type="radio" id="green" name="colors" value=" " onclick="setColor('green')">
+      <input type="radio" id="blue" name="colors" value=" " onclick="setColor('blue')">
+      <input type="radio" id="heoblue" name="colors" value=" " onclick="setColor('heoblue')">
+      <input type="radio" id="darkblue" name="colors" value=" " onclick="setColor('darkblue')">
+      <input type="radio" id="purple" name="colors" value=" " onclick="setColor('purple')">
+      <input type="radio" id="pink" name="colors" value=" " onclick="setColor('pink')">
+      <input type="radio" id="black" name="colors" value=" " onclick="setColor('black')">
+      </div>
 
-        <h2>四、背景设置</h2>
-        <center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认背景</button></center>
+<h2>四、背景设置</h2>
+<center><button class="winbox_btn" onclick="debounce(resetBg, 300)" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;" title="点击此按钮恢复网站默认背景"><i class="fa-solid fa-arrows-rotate" style="animation: fa-spin 8s linear infinite;"></i>&nbsp;恢复默认背景</button></center>
+
+<h3>1. 二次元</h3>
+      <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
+                  <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/yuanshen1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/yuanshen1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm15.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm15.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm2.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm7.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm8.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm8.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm3.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm11.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm11.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm12.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm12.webp)')"></a></div>
+                  </div>
+                </details>
         
-        <h3>1. 二次元</h3>
-        <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
-              <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)')"></a></div>
-              </div>
-            </details>
+        
+      <h3>2. 风景</h3>  
+      <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
+                <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj2.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj3.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj4.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj5.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj6.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj6.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj7.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj8.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj8.webp)')"></a></div>
+                  </div>
+                </details>
+      
+                
+      <h3>3. 萌宠</h3>  
+      <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
+                  <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc2.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc3.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc4.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc5.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc6.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc6.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc7.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc8.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc8.webp)')"></a></div>
+                  </div>
+                </details>
+      
+                
+      <h3>4. 渐变色</h3>
+      <details class="folding-tag" cyan><summary> 查看渐变色背景 </summary>
+                  <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a></div>
+                  </div>
+                </details>
         
         
-        <h3>2. 风景</h3>
+      <h3>5. 纯色</h3>
+      <details class="folding-tag" cyan><summary> 查看纯色背景 </summary>
+                  <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ecb1b1" onclick="changeBg('#ecb1b1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #d3ebac" onclick="changeBg('#d3ebac')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ace9ce" onclick="changeBg('#ace9ce')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #c1ebea" onclick="changeBg('#c1ebea')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #dee7f1" onclick="changeBg('#dee7f1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #e9e3f2" onclick="changeBg('#e9e3f2')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #f7eff5" onclick="changeBg('#f7eff5')"></a>  <input type="color" id="define_colors" href="javascript:;" rel="noopener external nofollow" class="box" autocomplete="on" value="${defineColor}" oninput="changeBgColor()"></input></div>
+                  </div>
+                </details>
         
-        <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
-              <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)')"></a></div>
-              </div>
-            </details>
         
-        <h3>3. 萌宠</h3>
         
-        <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
-              <div class='content'>
-              <pre><code>    &lt;div class=&quot;bgbox&quot;&gt;    &lt;a href=&quot;javascript:;&quot; rel=&quot;noopener external nofollow&quot; style=&quot;background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)&quot; class=&quot;imgbox&quot; onclick=&quot;changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')&quot;&gt;&lt;/a&gt;</code></pre></div>
-              </div>
-            </details>
-
-<h3>4. 渐变色</h3>
-<details class="folding-tag" cyan><summary> 查看渐变色背景 </summary>
-              <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a></div>
-              </div>
-            </details>
-
-
-<h3>5. 纯色</h3>
-<details class="folding-tag" cyan><summary> 查看纯色背景 </summary>
-              <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ecb1b1" onclick="changeBg('#ecb1b1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #d3ebac" onclick="changeBg('#d3ebac')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ace9ce" onclick="changeBg('#ace9ce')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #c1ebea" onclick="changeBg('#c1ebea')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #dee7f1" onclick="changeBg('#dee7f1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #e9e3f2" onclick="changeBg('#e9e3f2')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #f7eff5" onclick="changeBg('#f7eff5')"></a>  <input type="color" id="define_colors" href="javascript:;" rel="noopener external nofollow" class="box" autocomplete="on" value="${defineColor}" oninput="changeBgColor()"></input></div>
-              </div>
-            </details>
-
-
-
-<h3>6. 适配手机</h3>
-<details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
-              <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)')"></a></div>
-              </div>
-            </details>
+      <h3>6. 适配手机</h3>
+      <details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
+                  <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb5.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb6.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb6.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb7.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb8.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb8.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb9.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb9.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb16.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb16.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb19.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb19.webp)')"></a></div>
+                  </div>
+                </details>
 
 
 <h3>7. 壁纸API</h3>
@@ -3882,11 +3571,11 @@ function createWinbox() {
 
 
 <h3>8. 自定义背景</h3>
-<details class="folding-tag" cyan><summary> 设置自定义背景 </summary>
-              <div class='content'>
-              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://source.hujixiang.eu.org/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button></center></p>
-              </div>
-            </details>
+      <details class="folding-tag" cyan><summary> 设置自定义背景 </summary>
+                  <div class='content'>
+                      <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://source.hujixiang.eu.org/img/home_bg.webp"></center></p><p><center><button class="winbox_btn" type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button></center></p>
+                      </div>
+                    </details>
 
 <br>
 <center><div style="font-size:1.2em;color:var(--theme-color);font-weight:bold;">------ ( •̀ ω •́ )y 到底啦 ------</div></center>
