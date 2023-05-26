@@ -363,34 +363,13 @@ document.addEventListener("copy", function () {
 
 
 // f12提醒但不禁用
-document.onkeydown = function (e) {
-  if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) {
-    debounce(function () {
-      new Vue({
-        data: function () {
-          this.$notify({
-            title: "你已被发现😜",
-            message: "小伙子，扒源记住要遵循GPL协议！",
-            position: 'top-left',
-            offset: 50,
-            showClose: true,
-            type: "warning",
-            duration: 5000
-          });
-        }
-      })
-    }, 300);
-  }
-};
-// // f12提醒并禁用
 // document.onkeydown = function (e) {
-//   if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 74 || e.keyCode === 73 || e.keyCode === 67)) || (e.ctrlKey && e.keyCode === 85)) {
-//     e.preventDefault(); // 禁止默认行为（打开开发者工具）
+//   if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) {
 //     debounce(function () {
 //       new Vue({
 //         data: function () {
 //           this.$notify({
-//             title: "警告 😜",
+//             title: "你已被发现😜",
 //             message: "小伙子，扒源记住要遵循GPL协议！",
 //             position: 'top-left',
 //             offset: 50,
@@ -403,6 +382,27 @@ document.onkeydown = function (e) {
 //     }, 300);
 //   }
 // };
+// f12提醒并禁用
+document.onkeydown = function (e) {
+  if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 74 || e.keyCode === 73 || e.keyCode === 67)) || (e.ctrlKey && e.keyCode === 85)) {
+    e.preventDefault(); // 禁止默认行为（打开开发者工具）
+    debounce(function () {
+      new Vue({
+        data: function () {
+          this.$notify({
+            title: "警告 😜",
+            message: "小伙子，扒源记住要遵循GPL协议！",
+            position: 'top-left',
+            offset: 50,
+            showClose: true,
+            type: "warning",
+            duration: 5000
+          });
+        }
+      })
+    }, 300);
+  }
+};
 
 /* 禁用f12与按键防抖 end */
 
@@ -3617,14 +3617,11 @@ function createWinbox() {
 <center><button class="winbox_btn" onclick="debounce(resetBg, 300)" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;" title="点击此按钮恢复网站默认背景"><i class="fa-solid fa-arrows-rotate" style="animation: fa-spin 8s linear infinite;"></i>&nbsp;恢复默认背景</button></center>
 
 <h3>1. 二次元</h3>
-<details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
-              <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2023/05/26/1.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2023/05/26/1.webp)')"></a></div>
-              </div>
-            </details>
-
-
-
+      <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
+                  <div class='content'>
+                  <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/yuanshen1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/yuanshen1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm15.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm15.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm2.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm7.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm8.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm8.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm3.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm11.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm11.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/dm12.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/dm12.webp)')"></a></div>
+                  </div>
+                </details>
         
         
 <h3>2. 风景</h3>  
