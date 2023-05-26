@@ -3034,6 +3034,107 @@ function fpssw() {
   setTimeout(reload, 600);
 }
 
+// // Aside设置
+// function setAside() {
+//   if (document.getElementById("asideSet").checked) {
+//     localStorage.setItem("aside", "1");
+//     document.getElementById("aside-show").innerText =
+//       ":root{--layout-justify-content: unset; --aside-content-display: block;}";
+//   } else {
+//     localStorage.setItem("aside", "0");
+//     document.getElementById("aside-show").innerText =
+//       ":root{--layout-justify-content: center; --aside-content-display: none;}";
+//   }
+// }
+
+// // Aside位置设置
+// function setAsidePos() {
+//   if (document.getElementById("asidePosSet").checked) {
+//     localStorage.setItem("asidePos", "1");
+//     document.getElementById("aside-pos").innerText =
+//       ":root{--first-child-order: 0; --recent-post-item-margin: 0px 1% 20px 0px;}";
+//   } else {
+//     localStorage.setItem("asidePos", "0");
+//     document.getElementById("aside-pos").innerText =
+//       ":root{--first-child-order: 2; --recent-post-item-margin: 0px 0px 20px 1%;}";
+//   }
+// }
+
+// // 设置字体
+// if (localStorage.getItem("font") == undefined) {
+//   localStorage.setItem("font", "LXGW");
+// }
+// setFont(localStorage.getItem("font"));
+
+// // 设置主题颜色
+// if (localStorage.getItem("themeColor") == undefined) {
+//   localStorage.setItem("themeColor", "green");
+// }
+// setColor(localStorage.getItem("themeColor"));
+
+// // 设置Universe初始显示状态
+// if (localStorage.getItem("universe") == undefined) {
+//   localStorage.setItem("universe", "block");
+// }
+// document.getElementById("universe").style.display = localStorage.getItem("universe");
+
+// // 设置初始Snow显示状态
+// if (localStorage.getItem("snow") == undefined) {
+//   localStorage.setItem("snow", "none");
+// }
+// document.getElementById("snow").style.display = localStorage.getItem("snow");
+
+// // 设置初始帧率监测状态
+// if (localStorage.getItem("fpson") == undefined) {
+//   localStorage.setItem("fpson", "1");
+// }
+// startFps();
+// if (localStorage.getItem("fpson") == "1") {
+//   document.getElementById("fps").style.display = "block";
+// } else {
+//   document.getElementById("fps").style.display = "none";
+// }
+
+// // 设置右侧显示状态
+// if (localStorage.getItem("rs") == undefined) {
+//   localStorage.setItem("rs", "block");
+// }
+// if (localStorage.getItem("rs") == "block") {
+//   document.getElementById("rightSide").innerText = ":root{--rightside-display: block}";
+// } else {
+//   document.getElementById("rightSide").innerText = ":root{--rightside-display: none}";
+// }
+
+// // 设置Aside显示状态
+// if (localStorage.getItem("aside") == undefined) {
+//   localStorage.setItem("aside", "1");
+// }
+// if (localStorage.getItem("aside") == "1") {
+//   document.getElementById("aside-show").innerText =
+//     ":root{--layout-justify-content: unset; --aside-content-display: block;}";
+// } else {
+//   document.getElementById("aside-show").innerText =
+//     ":root{--layout-justify-content: center; --aside-content-display: none;}";
+// }
+
+// // 设置Aside位置状态
+// if (localStorage.getItem("asidePos") == undefined) {
+//   localStorage.setItem("asidePos", "1");
+// }
+// if (localStorage.getItem("asidePos") == "1") {
+//   document.getElementById("aside-pos").innerText =
+//     ":root{--first-child-order: 0; --recent-post-item-margin: 0px 1% 20px 0px;}";
+// } else {
+//   document.getElementById("aside-pos").innerText =
+//     ":root{--first-child-order: 2; --recent-post-item-margin: 0px 0px 20px 1%;}";
+// }
+
+// // 设置transNum初始值
+// if (localStorage.getItem("transNum") == undefined) {
+//   localStorage.setItem("transNum", 98);
+// }
+// var curTransNum = localStorage.getItem("transNum");
+// var curTransMini = 0.95 * curTransNum;
 // 刷新窗口
 function reload() {
   window.location.reload();
@@ -3614,12 +3715,17 @@ function createWinbox() {
   } else {
     document.getElementById("lightSet").checked = false;
   }
-  setFontBorder();
-  if (localStorage.getItem("snow") == "block") {
-    document.getElementById("snowSet").checked = true;
-  } else if (localStorage.getItem("snow") == "none") {
-    document.getElementById("snowSet").checked = false;
-  }
+  // setFontBorder();
+  // if (localStorage.getItem("aside") == "1") {
+  //   document.getElementById("asideSet").checked = true;
+  // } else if (localStorage.getItem("aside") == "0") {
+  //   document.getElementById("asideSet").checked = false;
+  // }
+  // if (localStorage.getItem("asidePos") == "1") {
+  //   document.getElementById("asidePosSet").checked = true;
+  // } else if (localStorage.getItem("asidePos") == "0") {
+  //   document.getElementById("asidePosSet").checked = false;
+  // }
 }
 
 // 恢复默认背景
