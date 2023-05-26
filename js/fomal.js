@@ -3597,6 +3597,7 @@ function createWinbox() {
 <a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif;!important;color:black" onclick="setFont('default')">系统默认</a>
 </p>
 
+
 <h2>三、主题色设置</h2>
       <div class="content" style="display:flex;padding-left:12px;">
       <input type="radio" id="red" name="colors" value=" " onclick="setColor('red')">
@@ -3611,8 +3612,17 @@ function createWinbox() {
       <input type="radio" id="black" name="colors" value=" " onclick="setColor('black')">
       </div>
 
+
 <h2>四、背景设置</h2>
 <center><button class="winbox_btn" onclick="debounce(resetBg, 300)" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;" title="点击此按钮恢复网站默认背景"><i class="fa-solid fa-arrows-rotate" style="animation: fa-spin 8s linear infinite;"></i>&nbsp;恢复默认背景</button></center>
+
+<h3>1. 二次元</h3>
+<details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
+              <div class='content'>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/yuanshen1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/仙丝暮成雪/img/home_bg.webp)')"></a></div>
+              </div>
+            </details>
+
 
 <h3>1. 二次元</h3>
       <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
@@ -3622,7 +3632,7 @@ function createWinbox() {
                 </details>
         
         
-      <h3>2. 风景</h3>  
+<h3>2. 风景</h3>  
       <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
                 <div class='content'>
                   <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj2.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj3.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj4.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj5.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj6.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj6.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj7.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/fj8.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/fj8.webp)')"></a></div>
@@ -3630,7 +3640,7 @@ function createWinbox() {
                 </details>
       
                 
-      <h3>3. 萌宠</h3>  
+<h3>3. 萌宠</h3>  
       <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
                   <div class='content'>
                   <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc2.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc3.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc4.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc5.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc6.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc6.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc7.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mc8.webp)" class="imgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mc8.webp)')"></a></div>
@@ -3638,7 +3648,7 @@ function createWinbox() {
                 </details>
       
                 
-      <h3>4. 渐变色</h3>
+<h3>4. 渐变色</h3>
       <details class="folding-tag" cyan><summary> 查看渐变色背景 </summary>
                   <div class='content'>
                   <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a></div>
@@ -3646,16 +3656,15 @@ function createWinbox() {
                 </details>
         
         
-      <h3>5. 纯色</h3>
+<h3>5. 纯色</h3>
       <details class="folding-tag" cyan><summary> 查看纯色背景 </summary>
                   <div class='content'>
                   <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ecb1b1" onclick="changeBg('#ecb1b1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #d3ebac" onclick="changeBg('#d3ebac')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ace9ce" onclick="changeBg('#ace9ce')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #c1ebea" onclick="changeBg('#c1ebea')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #dee7f1" onclick="changeBg('#dee7f1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #e9e3f2" onclick="changeBg('#e9e3f2')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #f7eff5" onclick="changeBg('#f7eff5')"></a>  <input type="color" id="define_colors" href="javascript:;" rel="noopener external nofollow" class="box" autocomplete="on" value="${defineColor}" oninput="changeBgColor()"></input></div>
                   </div>
                 </details>
         
-        
-        
-      <h3>6. 适配手机</h3>
+               
+<h3>6. 适配手机</h3>
       <details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
                   <div class='content'>
                   <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb5.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb6.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb6.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb7.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb8.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb8.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb9.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb9.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb16.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb16.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.skypro.cartafi.cn/2023/04/20/mb19.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.skypro.cartafi.cn/2023/04/20/mb19.webp)')"></a></div>
