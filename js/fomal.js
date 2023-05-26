@@ -3619,7 +3619,7 @@ function createWinbox() {
 <h3>1. 二次元</h3>
 <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2023/05/26/1.jpg)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/仙丝暮成雪/img/home_bg.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2023/05/26/1.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2023/05/26/1.webp)')"></a></div>
               </div>
             </details>
 
