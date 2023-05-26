@@ -2494,6 +2494,11 @@ function percent() {
       
       <h2>一、显示偏好</h2>
       
+      <div style="padding-bottom:15px">
+      <div class="content" style="display:flex">
+      <div class="content-text" style="font-weight:bold; padding-left:10px; "> 背景滤镜 </div><input type="checkbox" id="bgFilterSet" onclick="setBgFilter()">
+      </div>
+      
       <div class="transValue" id="transVal" style="font-weight:bold;padding-left:10px">卡片透明度 (0%-100%): <span style="color:#eb5353">${curTransNum}%</span></div>
       <div class="range">
       <input id="transSet" type="range" min="0" max="100" step="1" value=${curTransNum} oninput="setTrans()">

@@ -3408,6 +3408,107 @@ function changeLight(flag) {
   document.getElementById("menu_shadow").innerText = flag ? `:root{--menu-shadow: 0 0 1px var(--theme-color);}` : `:root{--menu-shadow: none;}`;
 }
 
+var blurRadius, saturate, contrast;
+if (null == localStorage.getItem("blogbg") || "default" == localStorage.getItem("blogbg")) {
+  resetBg_();
+  if (null == localStorage.getItem("blogbg")) {
+    localStorage.setItem("blogbg", "default");
+  }
+} else {
+  setBg(localStorage.getItem("blogbg"));
+}
+
+if (null == localStorage.getItem("light")) {
+  localStorage.setItem("light", "true");
+}
+
+document.addEventListener("pjaxcomplete", function () {
+  changeLight("true" == localStorage.getItem("light"));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  changeLight("true" == localStorage.getItem("light"));
+});
+
+if (null == localStorage.getItem("bgFilterVal")) {
+  localStorage.setItem("bgFilterVal", "blur(0px) saturate(115%) contrast(105%)");
+}
+
+function saveBgFilter() {
+  if (
+    document.getElementById("blurRad").value < 0 ||
+    document.getElementById("blurRad").value > 300 ||
+    document.getElementById("saturation").value < 0 ||
+    document.getElementById("saturation").value > 200 ||
+    document.getElementById("contrast").value < 0 ||
+    document.getElementById("contrast").value > 200
+  ) {
+    new Vue({
+      data: function () {
+        this.$notify({
+          title: "警告💊",
+          message: "背景滤镜参数不在合理范围内！",
+          position: "top-left",
+          offset: 50,
+          showClose: true,
+          type: "warning",
+          duration: 5000,
+        });
+      },
+    });
+  } else {
+    var e =
+      "blur(" +
+      document.getElementById("blurRad").value +
+      "px) saturate(" +
+      document.getElementById("saturation").value +
+      "%) contrast(" +
+      document.getElementById("contrast").value +
+      "%)";
+    localStorage.setItem("bgFilterVal", e);
+    if ("1" == localStorage.getItem("bgFilterOn")) {
+      document.getElementById("bgFilterParam").innerText =
+        ":root{--bg-filter:" + localStorage.getItem("bgFilterVal") + ";}";
+    }
+    var blurRadius = document.getElementById("blurRad").value;
+    var saturate = document.getElementById("saturation").value;
+    var contrast = document.getElementById("contrast").value;
+    document.getElementById("bgFilterShow").innerHTML =
+      '模糊半径: <span style="color:#eb5353">' +
+      blurRadius +
+      'px</span> | 饱和度: <span style="color:#eb5353">' +
+      saturate +
+      '%</span> | 对比度: <span style="color:#eb5353">' +
+      contrast +
+      "%</span>";
+    new Vue({
+      data: function () {
+        this.$notify({
+          title: "提示🍄",
+          message: "设置背景滤镜参数成功！",
+          position: "top-left",
+          offset: 50,
+          showClose: true,
+          type: "success",
+          duration: 5000,
+        });
+      },
+    });
+  }
+}
+
+function setBgFilter() {
+  if (document.getElementById("bgFilterSet").checked) {
+    document.getElementById("bgFilterParam").innerText =
+      ":root{--bg-filter:" + localStorage.getItem("bgFilterVal") + ";}";
+    localStorage.setItem("bgFilterOn", "1");
+  } else {
+    document.getElementById("bgFilterParam").innerText = ":root{--bg-filter:none;}";
+    localStorage.setItem("bgFilterOn", "0");
+  }
+}
+
+
 
 
 // 解决开启Pjax的问题
@@ -3582,6 +3683,15 @@ function createWinbox() {
   <div class="content-text" style="font-weight:bold; padding-left:20px"> 侧栏位置 (默认右边) </div><input type="checkbox" id="asidePosSet" onclick="setAsidePos()">
 </div>
 
+<div style="padding-bottom:15px">
+<div class="content" style="display:flex">
+<div class="content-text" style="font-weight:bold; padding-left:10px; "> 背景滤镜 </div><input type="checkbox" id="bgFilterSet" onclick="setBgFilter()">
+<div class="content" style="display:flex;font-weight:bold;padding-left:10px">
+模糊半径：<input type="number" id="blurRad" placeholder="0" min="0" max="300" step="1" title="背景模糊半径:0-300px">&nbsp;px&nbsp;&nbsp;饱和度：<input type="number" id="saturation" placeholder="115" min="0" max="200" step="1" title="背景饱和度:0-200%">&nbsp;%&nbsp;&nbsp;对比度：<input type="number" id="contrast" placeholder="105" min="0" max="200" step="1" title="背景对比度:0-200%">&nbsp;%&nbsp;&nbsp;
+<button class="winbox_btn" type="button" onclick="debounce(saveBgFilter,300)" style="background:var(--theme-color);width:48px;border-radius:6px;color:white;line-height:1.2;height:28px;margin-top:2px;" title="点击保存背景滤镜参数">保存</button>
+</div>
+</div>
+
 
 <h2>二、字体设置</h2>
 <div class="note warning modern"><p>非商免字体未经授权只能个人使用。本站为完全非商业、非盈利性质的网站，平时用于个人学习交流，如有侵权请联系站长删除，谢谢！ —— 致版权方</p>
@@ -3690,32 +3800,68 @@ function createWinbox() {
 `;
 
   // 打开小窗时候初始化
-  $("#" + localStorage.getItem("themeColor")).attr("checked", true);
-  if (localStorage.getItem("blur") == 1) {
-    document.getElementById("blur").checked = true;
-  } else {
-    document.getElementById("blur").checked = false;
-  }
-  if (localStorage.getItem("universe") == "block") {
-    document.getElementById("universeSet").checked = true;
-  } else if (localStorage.getItem("universe") == "none") {
-    document.getElementById("universeSet").checked = false;
-  }
-  if (localStorage.getItem("fpson") == "1") {
-    document.getElementById("fpson").checked = true;
-  } else {
-    document.getElementById("fpson").checked = false;
-  }
-  if (localStorage.getItem("rs") == "block") {
-    document.getElementById("rightSideSet").checked = true;
-  } else if (localStorage.getItem("rs") == "none") {
-    document.getElementById("rightSideSet").checked = false;
-  }
-  if (localStorage.getItem("light") == "true") {
-    document.getElementById("lightSet").checked = true;
-  } else {
-    document.getElementById("lightSet").checked = false;
-  }
+  document.getElementById(localStorage.getItem("themeColor")).checked = true;
+
+if (localStorage.getItem("bgFilterOn") == "1") {
+  document.getElementById("bgFilterSet").checked = true;
+} else if (localStorage.getItem("bgFilterOn") == "0") {
+  document.getElementById("bgFilterSet").checked = false;
+}
+
+document.getElementById("blurRad").value = blurRadius;
+document.getElementById("saturation").value = saturate;
+document.getElementById("contrast").value = contrast;
+
+if (localStorage.getItem("universe") == "block") {
+  document.getElementById("universeSet").checked = true;
+} else if (localStorage.getItem("universe") == "none") {
+  document.getElementById("universeSet").checked = false;
+}
+
+if (localStorage.getItem("fpson") == "1") {
+  document.getElementById("fpson").checked = true;
+} else {
+  document.getElementById("fpson").checked = false;
+}
+
+if (localStorage.getItem("rs") == "block") {
+  document.getElementById("rightSideSet").checked = true;
+} else if (localStorage.getItem("rs") == "none") {
+  document.getElementById("rightSideSet").checked = false;
+}
+
+if (localStorage.getItem("light") == "true") {
+  document.getElementById("lightSet").checked = true;
+} else {
+  document.getElementById("lightSet").checked = false;
+}
+
+setFontBorder();
+
+if (localStorage.getItem("snow") == "block") {
+  document.getElementById("snowSet").checked = true;
+} else if (localStorage.getItem("snow") == "none") {
+  document.getElementById("snowSet").checked = false;
+}
+
+if (localStorage.getItem("nav") == "1") {
+  document.getElementById("navSet").checked = true;
+} else if (localStorage.getItem("nav") == "0") {
+  document.getElementById("navSet").checked = false;
+}
+
+if (localStorage.getItem("aside") == "1") {
+  document.getElementById("asideSet").checked = true;
+} else if (localStorage.getItem("aside") == "0") {
+  document.getElementById("asideSet").checked = false;
+}
+
+if (localStorage.getItem("asidePos") == "1") {
+  document.getElementById("asidePosSet").checked = true;
+} else if (localStorage.getItem("asidePos") == "0") {
+  document.getElementById("asidePosSet").checked = false;
+}
+
   // setFontBorder();
   // if (localStorage.getItem("aside") == "1") {
   //   document.getElementById("asideSet").checked = true;
@@ -3735,11 +3881,20 @@ function resetBg() {
   reload();
 }
 
+
 // 恢复默认设置并刷新页面
 function reset() {
   clearItem();
   reload();
+  (document.getElementById("blurRad").value = 0);
+  (document.getElementById("saturation").value = 115);
+  (document.getElementById("contrast").value = 105);
+  (document.getElementById("bgFilterShow").innerHTML =
+    '模糊半径: <span style="color:#eb5353">0px</span> | 饱和度: <span style="color:#eb5353">115%</span> | 对比度: <span style="color:#eb5353">105%</span>');
+  (document.getElementById("bgFilterParam").innerText =
+    "elseroot{--bg-filterelse" + localStorage.getItem("bgFilterVal") + ";}");
 }
+
 
 // 适应窗口大小
 function winResize() {
